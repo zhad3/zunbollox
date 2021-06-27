@@ -1,0 +1,16 @@
+{
+	"authors": [
+		"zhad3"
+	],
+	"copyright": "Copyright © 2021, zhad3",
+	"description": "Convert korean cp949 to utf-8",
+	"license": "MIT",
+	"name": "zunbollox",
+    "targetPath": "bin/$PLATFORM/$ARCH",
+    "dependencies": {
+        "zencoding:windows949": "~>1.0.0"
+    },
+    "subPackages": [
+        "./gui/"
+    ]
+}

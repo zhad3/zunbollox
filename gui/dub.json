@@ -1,0 +1,21 @@
+{
+	"authors": [
+		"zhad3"
+	],
+	"copyright": "Copyright © 2021, zhad3",
+	"description": "Graphical interface for the zunbollox utility tool.",
+	"license": "MIT",
+	"name": "gui",
+    "targetType": "executable",
+    "targetPath": "../bin/$PLATFORM/$ARCH/gui",
+    "targetName": "zunbollox-gui",
+    "dependencies": {
+        "tkd": "~>1.1.13",
+        "zencoding:windows949": "~>1.0.0"
+    },
+    "copyFiles-windows": [
+        "$TCLTK_PACKAGE_DIR/dist/$ARCH/tcl86t.dll",
+        "$TCLTK_PACKAGE_DIR/dist/$ARCH/tk86t.dll",
+        "$TCLTK_PACKAGE_DIR/dist/library"
+    ]
+}
