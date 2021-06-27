@@ -211,7 +211,7 @@ private:
             auto frame = new Frame(aboutWindow, 2, ReliefStyle.groove)
                 .pack(5, 5, GeometrySide.top, GeometryFill.both, AnchorPosition.center, true);
 
-            new Label(frame, "zunbollox gui 1.0.0").setFont("arial", 12, FontStyle.bold).pack(5);
+            new Label(frame, "zunbollox gui 1.0.1").setFont("arial", 12, FontStyle.bold).pack(5);
             new Label(frame, "https://github.com/zhad3/zunbollox").pack(5)
                 .setFont("arial", 10, FontStyle.underline)
                 .setForegroundColor(Color.blue3)

@@ -27,7 +27,7 @@ int main(string[] args)
 
         if (helpWanted)
         {
-            writeln("zunbollox 1.0.0\n" ~
+            writeln("zunbollox 1.0.1\n" ~
                     "Usage: zunbollox [-h] [-f <filename>]\n" ~
                     "\n" ~
                     "If no options are provided the program will\n" ~
