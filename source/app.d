@@ -18,7 +18,6 @@ int main(string[] args)
 
         foreach (arg; args[1 .. $])
         {
-            writeln(arg);
             if (arg == "-h" || arg == "--help")
             {
                 helpWanted = true;
@@ -46,12 +45,20 @@ int main(string[] args)
     if (args.length > 2)
     {
 
-        foreach (arg; args[1 .. $])
+        foreach (i, arg; args[1 .. $])
         {
-            if (args[1] == "-f")
+            import std.algorithm : startsWith;
+
+            if (!arg.startsWith("-"))
             {
-                sourceFile = args[2];
+                continue;
             }
+
+            if (arg == "-f" && i + 2 < args.length)
+            {
+                sourceFile = args[i + 2];
+            }
+
             if (sourceFile == string.init)
             {
                 writeln("No filename provided for option '-f'");
@@ -80,7 +87,7 @@ static int convertBetweenFiles(string sourceFile, string destFile)
     {
         filecontents = cast(ubyte[]) read(sourceFile);
     }
-    catch (ErrnoException err)
+    catch (Throwable err)
     {
         writeln("Couldn't open file \"" ~ sourceFile ~ "\" with error: %s".format(err.msg));
         return 1;
@@ -89,10 +96,12 @@ static int convertBetweenFiles(string sourceFile, string destFile)
     File fout;
     try
     {
+        import std.utf : toUTF8;
+
         fout = File(destFile, "w+");
-        fout.write(fromWindows949(filecontents));
+        fout.rawWrite(fromWindows949(filecontents).toUTF8);
     }
-    catch (ErrnoException err)
+    catch (Throwable err)
     {
         writeln("Couldn't open file \"" ~ destFile ~ "\" with error: %s".format(err.msg));
         return 1;
